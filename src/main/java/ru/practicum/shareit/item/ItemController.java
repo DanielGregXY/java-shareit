@@ -3,9 +3,9 @@ package ru.practicum.shareit.request.item.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import ru.practicum.shareit.request.item.dto.ItemDto;
-import ru.practicum.shareit.request.item.model.Item;
-import ru.practicum.shareit.request.item.service.ItemService;
+import ru.practicum.shareit.user.controller.item.dto.ItemDto;
+import ru.practicum.shareit.user.controller.item.model.Item;
+import ru.practicum.shareit.user.controller.item.service.ItemService;
 
 import javax.validation.Valid;
 import java.util.List;
