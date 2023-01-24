@@ -1,7 +1,7 @@
-package ru.practicum.shareit.user.controller.item.storage;
+package ru.practicum.shareit.item.storage;
 
-import ru.practicum.shareit.user.controller.item.dto.ItemDto;
-import ru.practicum.shareit.user.controller.item.model.Item;
+import ru.practicum.shareit.item.dto.ItemDto;
+import ru.practicum.shareit.item.model.Item;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,16 +1,20 @@
-package ru.practicum.shareit.user.controller.item.storage;
+package ru.practicum.shareit.item.storage;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import ru.practicum.shareit.exeption.ObjectNotFoundException;
-import ru.practicum.shareit.user.controller.item.dto.ItemDto;
-import ru.practicum.shareit.user.controller.item.model.Item;
-import ru.practicum.shareit.user.controller.item.service.mapper.ItemMapper;
-
-import java.util.*;
+import ru.practicum.shareit.item.dto.ItemDto;
+import ru.practicum.shareit.item.model.Item;
+import ru.practicum.shareit.item.mapper.ItemMapper;
+import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.List;
 import java.util.stream.Collectors;
+import java.util.Collections;
+import java.util.Optional;
 
 @Slf4j
 @Repository
@@ -78,7 +82,8 @@ public class ItemRepositoryImpl implements ItemStorage {
                 .findFirst().orElseThrow(() -> {
                     log.warn("Вещь с itemId{} не найдена", itemId);
                     throw new ObjectNotFoundException("Вещь не найдена");
-                });
+                })
+                ;
         if (item.getName() != null) {
             repoItem.setName(item.getName());
         }

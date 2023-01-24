@@ -1,9 +1,9 @@
-package ru.practicum.shareit.user.controller.item.service.mapper;
+package ru.practicum.shareit.item.mapper;
 
 import lombok.Getter;
 import lombok.Setter;
-import ru.practicum.shareit.user.controller.item.dto.ItemDto;
-import ru.practicum.shareit.user.controller.item.model.Item;
+import ru.practicum.shareit.item.dto.ItemDto;
+import ru.practicum.shareit.item.model.Item;
 
 @Getter
 @Setter

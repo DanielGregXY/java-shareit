@@ -1,15 +1,14 @@
-package ru.practicum.shareit.user.controller.item.service;
+package ru.practicum.shareit.item.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.practicum.shareit.exeption.ObjectNotFoundException;
-import ru.practicum.shareit.user.controller.item.dto.ItemDto;
-import ru.practicum.shareit.user.controller.item.model.Item;
-import ru.practicum.shareit.user.controller.item.storage.ItemStorage;
+import ru.practicum.shareit.item.dto.ItemDto;
+import ru.practicum.shareit.item.model.Item;
+import ru.practicum.shareit.item.storage.ItemStorage;
 import ru.practicum.shareit.user.storage.UserStorage;
-
 import java.util.Collections;
 import java.util.List;
 
