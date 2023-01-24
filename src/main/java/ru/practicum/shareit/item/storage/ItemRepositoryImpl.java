@@ -8,6 +8,7 @@ import ru.practicum.shareit.exeption.ObjectNotFoundException;
 import ru.practicum.shareit.item.dto.ItemDto;
 import ru.practicum.shareit.item.model.Item;
 import ru.practicum.shareit.item.mapper.ItemMapper;
+
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Map;
@@ -82,8 +83,7 @@ public class ItemRepositoryImpl implements ItemStorage {
                 .findFirst().orElseThrow(() -> {
                     log.warn("Вещь с itemId{} не найдена", itemId);
                     throw new ObjectNotFoundException("Вещь не найдена");
-                })
-                ;
+                });
         if (item.getName() != null) {
             repoItem.setName(item.getName());
         }
