@@ -26,7 +26,7 @@ public class ItemRepositoryImpl implements ItemStorage {
                 .map(ItemMapper::toItemDto)
                 .collect(Collectors.toList());
     }
-//
+
     @Override
     public Optional<ItemDto> findItem(long itemId) {
         List<Item> allItems = new ArrayList<>();
@@ -56,7 +56,7 @@ public class ItemRepositoryImpl implements ItemStorage {
                 .map(ItemMapper::toItemDto)
                 .collect(Collectors.toList());
     }
-//
+
     @Override
     public ItemDto create(long userId, ItemDto itemDto) {
         itemDto.setId(idCounter++);
@@ -78,16 +78,15 @@ public class ItemRepositoryImpl implements ItemStorage {
                 .findFirst().orElseThrow(() -> {
                     log.warn("Вещь с itemId{} не найдена", itemId);
                     throw new ObjectNotFoundException("Вещь не найдена");
-                })
-                ;
-            if (item.getName() != null) {
-                repoItem.setName(item.getName());
+                });
+        if (item.getName() != null) {
+            repoItem.setName(item.getName());
         }
-            if (item.getDescription() != null) {
-                repoItem.setDescription(item.getDescription());
+        if (item.getDescription() != null) {
+            repoItem.setDescription(item.getDescription());
         }
-            if (item.getAvailable() != null) {
-                repoItem.setAvailable(item.getAvailable());
+        if (item.getAvailable() != null) {
+            repoItem.setAvailable(item.getAvailable());
         }
         items.get(userId).removeIf(item1 -> item1.getId() == itemId);
         items.get(userId).add(repoItem);
