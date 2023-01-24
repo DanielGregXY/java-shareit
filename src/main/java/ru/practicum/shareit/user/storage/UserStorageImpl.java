@@ -41,9 +41,9 @@ public class UserStorageImpl implements UserStorage {
             if (user.getEmail() != null) {
                 users.get(id).setEmail(user.getEmail());
             }
-                return users.get(id);
-            } else  {
-                throw new ObjectNotFoundException("Юзер не найден");
+            return users.get(id);
+        } else {
+            throw new ObjectNotFoundException("Юзер не найден");
         }
     }
 
