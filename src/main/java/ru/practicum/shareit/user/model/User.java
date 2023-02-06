@@ -1,17 +1,25 @@
 package ru.practicum.shareit.user.model;
 
-import lombok.*;
-import lombok.experimental.FieldDefaults;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+
+import javax.persistence.*;
 
 @Getter
 @Setter
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@FieldDefaults(level = AccessLevel.PRIVATE)
+@Entity
+@Table(name = "USERS")
 public class User {
-     long id;
-
-     String name;
-
-     String email;
+     @Id
+     @GeneratedValue(strategy = GenerationType.IDENTITY)
+     private Long id;
+     private String name;
+     private String email;
 }
