@@ -1,29 +1,22 @@
 package ru.practicum.shareit.booking.model;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;import ru.practicum.shareit.booking.enums.BookingStatus;
+import lombok.*;
+import org.hibernate.Hibernate;
+import ru.practicum.shareit.booking.enums.BookingStatus;
 import ru.practicum.shareit.item.model.Item;
 import ru.practicum.shareit.user.model.User;
-import javax.persistence.Table;
-import javax.persistence.Id;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.JoinColumn;
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Enumerated;
-import javax.persistence.EnumType;
-import java.time.LocalDateTime;
 
-@Getter
-@Setter
+import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.util.Objects;
+
+
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 @ToString
+@RequiredArgsConstructor
 @Entity
 @Table(name = "bookings")
 public class Booking {
@@ -42,4 +35,17 @@ public class Booking {
     private User booker;
     @Enumerated(EnumType.STRING)
     private BookingStatus status;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        Booking booking = (Booking) o;
+        return id != null && Objects.equals(id, booking.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
 }
