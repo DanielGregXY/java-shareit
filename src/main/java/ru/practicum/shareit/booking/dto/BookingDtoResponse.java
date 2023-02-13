@@ -14,15 +14,15 @@ import java.time.LocalDateTime;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class BookingDtoResponse {
 
-     Long id;
+    Long id;
 
-     LocalDateTime start;
+    LocalDateTime start;
 
-     LocalDateTime end;
+    LocalDateTime end;
 
-     Item item;
+    Item item;
 
-     User booker;
+    User booker;
 
-     BookingStatus status;
+    BookingStatus status;
 }

@@ -12,11 +12,11 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class ItemDto {
-     long id;
+    long id;
     @NotBlank(groups = Create.class)
-     String name;
+    String name;
     @NotBlank(groups = Create.class)
-     String description;
+    String description;
     @NotNull(groups = Create.class)
-     Boolean available;
+    Boolean available;
 }

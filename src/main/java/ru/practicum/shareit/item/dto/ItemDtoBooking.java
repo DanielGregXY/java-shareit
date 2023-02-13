@@ -11,11 +11,11 @@ import java.util.List;
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class ItemDtoBooking {
-     long id;
-     String name;
-     String description;
-     Boolean available;
-     BookingDto lastBooking;
-     BookingDto nextBooking;
-     List<CommentDto> comments;
+    long id;
+    String name;
+    String description;
+    Boolean available;
+    BookingDto lastBooking;
+    BookingDto nextBooking;
+    List<CommentDto> comments;
 }
