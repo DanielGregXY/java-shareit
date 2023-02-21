@@ -56,22 +56,12 @@ public class ItemServiceImpl implements ItemService {
 
 
     @Override
-    public List<ItemDtoBooking> findAll(long userId) {
-        return null;
-    }
-
-    @Override
     public ItemDtoBooking findItem(long userId, long itemId) {
         Item item = itemRepository.findById(itemId).orElseThrow(() -> {
             throw new ObjectNotFoundException("Вещь для обновления не найдена");
         });
         log.info("Вещь найдена");
         return setAllBookingsAndComments(userId, Collections.singletonList(item)).get(0);
-    }
-
-    @Override
-    public List<ItemDto> searchItem(String text) {
-        return null;
     }
 
     @Override
