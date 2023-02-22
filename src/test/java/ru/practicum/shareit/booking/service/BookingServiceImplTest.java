@@ -509,7 +509,7 @@ class BookingServiceImplTest {
                         0,
                         10));
 
-        assertEquals("Unknown state: UNKNOWN", exception.getMessage());
+        assertEquals("Неизвестное состояние: UNKNOWN", exception.getMessage());
     }
 
     @Test
@@ -682,7 +682,7 @@ class BookingServiceImplTest {
                         0,
                         10));
 
-        assertEquals("Unknown state: UNKNOWN", exception.getMessage());
+        assertEquals("Неизвестное состояние: UNKNOWN", exception.getMessage());
     }
 
     @Test
