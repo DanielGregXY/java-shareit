@@ -112,7 +112,7 @@ public class BookingServiceImpl implements BookingService {
                 books.addAll(bookingRepository.findByBookerAndStatus(userId, BookingStatus.REJECTED, pageRequest));
                 break;
             default:
-                throw new UnsupportedStateException("Unknown state: " + state);
+                throw new UnsupportedStateException("Неизвестное состояние: " + state);
         }
         return books.stream()
                 .map(BookingMapper::toBookingDtoResponse)
@@ -147,7 +147,7 @@ public class BookingServiceImpl implements BookingService {
                 books.addAll(bookingRepository.findByItemOwnerAndStatus(userId, BookingStatus.REJECTED, pageRequest));
                 break;
             default:
-                throw new UnsupportedStateException("Unknown state: " + state);
+                throw new UnsupportedStateException("Неизвестное состояние: " + state);
         }
         return books.stream()
                 .map(BookingMapper::toBookingDtoResponse)
