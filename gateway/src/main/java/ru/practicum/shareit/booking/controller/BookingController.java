@@ -25,7 +25,6 @@ import static ru.practicum.shareit.common.Variables.HEADER;
 public class BookingController {
 
     private final BookingClient bookingClient;
-    final String bookingId = "/{bookingId}";
 
     @PostMapping
     public ResponseEntity<Object> create(@RequestHeader(HEADER) long id, @Validated(Create.class) @RequestBody BookingDto bookingDto) {
@@ -35,14 +34,14 @@ public class BookingController {
         return bookingClient.create(id, bookingDto);
     }
 
-    @PatchMapping(bookingId)
+    @PatchMapping("/{bookingId}")
     public ResponseEntity<Object> changeStatus(@RequestHeader(HEADER) long userId,
                                                @PathVariable long bookingId,
                                                @RequestParam boolean approved) {
         return bookingClient.changeStatus(userId, bookingId, approved);
     }
 
-    @GetMapping(bookingId)
+    @GetMapping("/{bookingId}")
     public ResponseEntity<Object> getById(@RequestHeader(HEADER) long userId,
                                           @PathVariable long bookingId) {
         return bookingClient.getBookingInfo(userId, bookingId);

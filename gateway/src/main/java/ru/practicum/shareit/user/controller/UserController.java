@@ -16,13 +16,13 @@ import ru.practicum.shareit.user.dto.UserDto;
 public class UserController {
 
     private final UserClient userClient;
-    final String id = "/{id}";
+    final String idd = "/{id}";
     @PostMapping
     public ResponseEntity<Object> create(@Validated(Create.class) @RequestBody UserDto userDto) {
         return userClient.create(userDto);
     }
 
-    @PatchMapping(id)
+    @PatchMapping(idd)
     public ResponseEntity<Object> update(@PathVariable long id, @Validated(Update.class) @RequestBody UserDto userDto) {
         return userClient.update(id, userDto);
     }
@@ -32,12 +32,12 @@ public class UserController {
         return userClient.getAllUsers();
     }
 
-    @GetMapping(id)
+    @GetMapping(idd)
     public ResponseEntity<Object> getById(@PathVariable long id) {
         return userClient.getById(id);
     }
 
-    @DeleteMapping(id)
+    @DeleteMapping(idd)
     public void delete(@PathVariable long id) {
         userClient.delete(id);
     }

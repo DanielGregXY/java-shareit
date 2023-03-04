@@ -18,13 +18,13 @@ import java.time.LocalDateTime;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class BookingDto {
     @NotNull(groups = Update.class)
-     Long id;
+    private Long id;
     @FutureOrPresent(groups = Create.class)
-     LocalDateTime start;
+    private LocalDateTime start;
     @Future(groups = Create.class)
-     LocalDateTime end;
+    private LocalDateTime end;
     @NotNull(groups = Create.class)
-     Long itemId;
-     Long bookerId;
-     BookingStatus status;
+    private Long itemId;
+    private Long bookerId;
+    private BookingStatus status;
 }
