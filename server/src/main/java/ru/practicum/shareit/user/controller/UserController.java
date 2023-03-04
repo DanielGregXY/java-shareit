@@ -15,7 +15,6 @@ import ru.practicum.shareit.user.dto.UserDto;
 import ru.practicum.shareit.common.Create;
 import ru.practicum.shareit.common.Update;
 import lombok.RequiredArgsConstructor;
-
 import java.util.List;
 
 @RestController
@@ -24,19 +23,19 @@ import java.util.List;
 public class UserController {
 
     private final UserService userService;
-    final String id = "/{id}";
+    final String idd = "/{id}";
 
     @PostMapping
     public UserDto create(@Validated(Create.class) @RequestBody UserDto userDto) {
         return userService.create(userDto);
     }
 
-    @PatchMapping(id)
+    @PatchMapping(idd)
     public UserDto update(@PathVariable long id, @Validated(Update.class) @RequestBody UserDto userDto) {
         return userService.update(id, userDto);
     }
 
-    @GetMapping(id)
+    @GetMapping(idd)
     public UserDto getById(@PathVariable long id) {
         return userService.getById(id);
     }
@@ -46,7 +45,7 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-    @DeleteMapping(id)
+    @DeleteMapping(idd)
     public UserDto delete(@PathVariable long id) {
         return userService.delete(id);
     }
