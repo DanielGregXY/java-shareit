@@ -15,7 +15,6 @@ import ru.practicum.shareit.user.dto.UserDto;
 import ru.practicum.shareit.common.Create;
 import ru.practicum.shareit.common.Update;
 import lombok.RequiredArgsConstructor;
-
 import java.util.List;
 
 @RestController
