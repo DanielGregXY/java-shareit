@@ -17,6 +17,7 @@ public class UserController {
 
     private final UserClient userClient;
     final String idd = "/{id}";
+
     @PostMapping
     public ResponseEntity<Object> create(@Validated(Create.class) @RequestBody UserDto userDto) {
         return userClient.create(userDto);
