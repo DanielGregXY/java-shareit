@@ -11,13 +11,16 @@ import ru.practicum.shareit.booking.dto.BookingDtoResponse;
 import ru.practicum.shareit.booking.service.BookingService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+
 import static ru.practicum.shareit.common.Variables.HEADER;
+
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import ru.practicum.shareit.booking.dto.BookingDto;
 import org.springframework.data.domain.PageRequest;
 import ru.practicum.shareit.common.Create;
 import lombok.RequiredArgsConstructor;
+
 import java.util.List;
 
 @Validated
@@ -28,6 +31,7 @@ public class BookingController {
 
     private final BookingService bookingService;
     final String bookingIdd = "/{bookingId}";
+
     @PostMapping
     public BookingDtoResponse create(@RequestHeader(HEADER) long id, @Validated(Create.class) @RequestBody BookingDto bookingDto) {
         return bookingService.create(id, bookingDto);
@@ -48,18 +52,18 @@ public class BookingController {
 
     @GetMapping
     public List<BookingDtoResponse> getByBooker(@RequestHeader(HEADER) long userId,
-                                        @RequestParam(defaultValue = "ALL", required = false) String state,
-                                        @RequestParam(defaultValue = "0", required = false) int from,
-                                        @RequestParam(defaultValue = "20", required = false) int size) {
+                                                @RequestParam(defaultValue = "ALL", required = false) String state,
+                                                @RequestParam(defaultValue = "0", required = false) int from,
+                                                @RequestParam(defaultValue = "20", required = false) int size) {
         PageRequest page = PageRequest.of(from / size, size);
         return bookingService.getByBooker(userId, state, page);
     }
 
     @GetMapping("/owner")
     public List<BookingDtoResponse> getByOwner(@RequestHeader(HEADER) long userId,
-                                       @RequestParam(defaultValue = "ALL", required = false) String state,
-                                       @RequestParam(defaultValue = "0", required = false) int from,
-                                       @RequestParam(defaultValue = "20", required = false) int size) {
+                                               @RequestParam(defaultValue = "ALL", required = false) String state,
+                                               @RequestParam(defaultValue = "0", required = false) int from,
+                                               @RequestParam(defaultValue = "20", required = false) int size) {
         PageRequest page = PageRequest.of(from / size, size);
         return bookingService.getByOwner(userId, state, page);
     }
