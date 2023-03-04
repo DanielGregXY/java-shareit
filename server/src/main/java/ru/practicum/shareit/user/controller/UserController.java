@@ -23,18 +23,18 @@ import java.util.List;
 public class UserController {
 
     private final UserService userService;
-
+    final String id = "/{id}";
     @PostMapping
     public UserDto create(@Validated(Create.class) @RequestBody UserDto userDto) {
         return userService.create(userDto);
     }
 
-    @PatchMapping("/{id}")
+    @PatchMapping(id)
     public UserDto update(@PathVariable long id, @Validated(Update.class) @RequestBody UserDto userDto) {
         return userService.update(id, userDto);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping(id)
     public UserDto getById(@PathVariable long id) {
         return userService.getById(id);
     }
@@ -44,7 +44,7 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping(id)
     public UserDto delete(@PathVariable long id) {
         return userService.delete(id);
     }

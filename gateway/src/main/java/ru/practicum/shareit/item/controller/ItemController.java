@@ -22,13 +22,14 @@ import static ru.practicum.shareit.common.Variables.HEADER;
 public class ItemController {
 
     private final ItemClient itemClient;
+    final String itemId = "/{itemId}";
 
     @PostMapping
     public ResponseEntity<Object> create(@RequestHeader(HEADER) long userId, @Validated(Create.class) @RequestBody ItemDto itemDto) {
         return itemClient.create(userId, itemDto);
     }
 
-    @PatchMapping("/{itemId}")
+    @PatchMapping(itemId)
     public ResponseEntity<Object> update(@RequestHeader(HEADER) long userId, @PathVariable long itemId, @RequestBody ItemDto itemDto) {
         return itemClient.update(userId, itemId, itemDto);
     }
@@ -40,7 +41,7 @@ public class ItemController {
         return itemClient.findAll(id, from, size);
     }
 
-    @GetMapping("/{itemId}")
+    @GetMapping(itemId)
     public ResponseEntity<Object> findItem(@RequestHeader(HEADER) long userId, @PathVariable long itemId) {
         return itemClient.findItem(userId, itemId);
     }
@@ -55,8 +56,8 @@ public class ItemController {
 
     @PostMapping("/{itemId}/comment")
     public ResponseEntity<Object> addComment(@RequestHeader(HEADER) long userId,
-                                 @PathVariable long itemId,
-                                 @Validated(Create.class) @RequestBody CommentDto commentDto) {
+                                             @PathVariable long itemId,
+                                             @Validated(Create.class) @RequestBody CommentDto commentDto) {
         return itemClient.addComment(userId, itemId, commentDto);
     }
 }

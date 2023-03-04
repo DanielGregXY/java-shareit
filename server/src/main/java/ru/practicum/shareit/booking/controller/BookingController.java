@@ -27,20 +27,20 @@ import java.util.List;
 public class BookingController {
 
     private final BookingService bookingService;
-
+    final String bookingId = "/{bookingId}";
     @PostMapping
     public BookingDtoResponse create(@RequestHeader(HEADER) long id, @Validated(Create.class) @RequestBody BookingDto bookingDto) {
         return bookingService.create(id, bookingDto);
     }
 
-    @PatchMapping("/{bookingId}")
+    @PatchMapping(bookingId)
     public BookingDtoResponse changeStatus(@RequestHeader(HEADER) long userId,
                                            @PathVariable long bookingId,
                                            @RequestParam boolean approved) {
         return bookingService.changeStatus(userId, bookingId, approved);
     }
 
-    @GetMapping("/{bookingId}")
+    @GetMapping(bookingId)
     public BookingDtoResponse getBookingInfo(@RequestHeader(HEADER) long userId,
                                              @PathVariable long bookingId) {
         return bookingService.getBookingInfo(userId, bookingId);
