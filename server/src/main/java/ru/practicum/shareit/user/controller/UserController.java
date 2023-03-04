@@ -15,6 +15,7 @@ import ru.practicum.shareit.user.dto.UserDto;
 import ru.practicum.shareit.common.Create;
 import ru.practicum.shareit.common.Update;
 import lombok.RequiredArgsConstructor;
+
 import java.util.List;
 
 @RestController
@@ -24,6 +25,7 @@ public class UserController {
 
     private final UserService userService;
     final String id = "/{id}";
+
     @PostMapping
     public UserDto create(@Validated(Create.class) @RequestBody UserDto userDto) {
         return userService.create(userDto);
