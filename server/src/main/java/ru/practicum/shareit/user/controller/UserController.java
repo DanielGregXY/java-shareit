@@ -18,6 +18,7 @@ import lombok.RequiredArgsConstructor;
 import java.util.List;
 
 @RestController
+
 @RequestMapping(path = "/users")
 @RequiredArgsConstructor(onConstructor_ = @Autowired)
 public class UserController {
